@@ -39,17 +39,16 @@ main(void)
 	
 	printf("Waiting on port 6000...\n");
 
-	if ((cli_fd = accept(serv_fd, NULL, NULL)) == -1)
-		err(1, NULL);
+	for (;;) {
+		if ((cli_fd = accept(serv_fd, NULL, NULL)) == -1)
+			err(1, NULL);
 
-	if (write(cli_fd, mesg, strlen(mesg)) == -1)
-		err(1, NULL);
+		if (write(cli_fd, mesg, strlen(mesg)) == -1)
+			err(1, NULL);
 
-	if (close(cli_fd) == -1)
-		err(1, NULL);
-
-	if (close(serv_fd) == -1)
-		err(1, NULL);
+		if (close(cli_fd) == -1)
+			err(1, NULL);
+	}
 
 	return 0;
 
