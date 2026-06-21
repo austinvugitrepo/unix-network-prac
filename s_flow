@@ -1,0 +1,6 @@
+socket();
+bind();
+listen();
+accept();
+write();
+close();
