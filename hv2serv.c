@@ -28,7 +28,7 @@ main(void)
 
 	/* filling the struct: */
 	addr.sin_family = AF_INET;
-	addr.sin_port = htons(6000);
+	addr.sin_port = htons(6660);
 	addr.sin_addr.s_addr = htonl(INADDR_ANY);
 
 	if (bind(serv_fd, (struct sockaddr *)&addr, sizeof(addr)) == -1)
@@ -37,7 +37,7 @@ main(void)
 	if (listen(serv_fd, 1) == -1)
 		err(1, NULL);
 	
-	printf("Waiting on port 6000...\n");
+	printf("Waiting on port 6660...\n");
 
 	for (;;) {
 		if ((cli_fd = accept(serv_fd, NULL, NULL)) == -1)
